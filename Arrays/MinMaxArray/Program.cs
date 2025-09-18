@@ -44,6 +44,7 @@ namespace MinMaxArray
   {
     static void Main(string[] args)
     {
+      Console.WriteLine("Enter data");
       int size = int.Parse(Console.ReadLine());
 
       int[] numbers = new int[size];
