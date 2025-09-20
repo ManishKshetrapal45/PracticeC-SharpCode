@@ -42,7 +42,7 @@ No pair has sum equal to 4.
 
 Explanation 3:
  (i,j) = (2,3)*/
-namespace SeparateOddEven
+namespace GoodPair
 {
   public class Program
   {
