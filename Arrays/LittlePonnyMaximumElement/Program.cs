@@ -63,7 +63,7 @@ namespace LittlePonnyMaximumElement
       {
         return count;
       }
-      if (flag == 1 && count != 0)
+      if (count == 0 && flag == 1)
       {
         return 0;
       }
