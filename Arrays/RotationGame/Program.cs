@@ -30,7 +30,7 @@ N = 4, A = [1, 2, 3, 4] and B = 2.
 Rotate towards the right 2 times - [1, 2, 3, 4] => [4, 1, 2, 3] => [3, 4, 1, 2]
 Final array = [3, 4, 1, 2]
 */
-namespace SecondLargest
+namespace RotationGame
 {
   class Program
   {
@@ -39,9 +39,31 @@ namespace SecondLargest
       Console.WriteLine("Enter the array with space separated");
       var arr = Console.ReadLine().Split(' ');
       var rotate = int.Parse(Console.ReadLine());
-      int len = arr[0];
+      int len = int.Parse(arr[0]);
       rotate = rotate % len;
-      int i = 1, j = len;
+      int i = 1, j = len - rotate;
+      while (i < j)
+      {
+        var c = arr[i];
+        arr[i] = arr[j];
+        arr[j] = c;
+        i++;
+        j--;
+      }
+      j = len;
+      i = len - rotate + 1;
+      while (i < j)
+      {
+        var c = arr[i];
+        arr[i] = arr[j];
+        arr[j] = c;
+        i++;
+        j--;
+      }
+      for (int e = len; e > 0; e--)
+      {
+        Console.Write($"{arr[e]} ");
+      }
     }
   }
 }
