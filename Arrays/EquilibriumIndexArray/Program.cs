@@ -58,6 +58,36 @@ namespace EquilibriumIndexArray
   {
     public static void Main(string[] args)
     {
+      //List<int> list = new List<int>() { -7, 1, 5, 2, -4, 3, 0 };
+      List<int> list = new List<int>() { 1, 2, 3 };
+      Console.WriteLine(solve(list));
+    }
+
+    public static int solve(List<int> A)
+    {
+      int N = A.Count;
+      if (N == 0)
+        return -1;
+
+      List<int> prefix = new List<int>(new int[N]);
+      prefix[0] = A[0];
+
+      for (int i = 1; i < N; i++)
+      {
+        prefix[i] = prefix[i - 1] + A[i];
+      }
+
+      for (int j = 0; j < N; j++)
+      {
+        int leftSum = (j == 0) ? 0 : prefix[j - 1];
+        int rightSum = prefix[N - 1] - prefix[j];
+
+        if (leftSum == rightSum)
+        {
+          return j;
+        }
+      }
+      return -1;
     }
   }
 }

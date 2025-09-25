@@ -42,12 +42,59 @@ Explanation 1:
 Explanation 2:
  Remove the first element and the last 3 elements. So we get 2 + 4 + 2 + 1 = 9
 */
-namespace PuckFromBothSide
+namespace PickFromBothSide
 {
   class Program
   {
-    static void Main(string[] args)
+    public static void Main(string[] args)
     {
+      // List<int> list = new List<int>() { 5, -2, 3, 1, 2 };
+      // int B = 3;
+      List<int> list = new List<int>() { 2, 3, -1, 4, 2, 1 };
+      int B = 4;
+      Console.WriteLine(solve(list, B));
+    }
+
+    public static int solve(List<int> A, int B)
+    {
+      int N = A.Count();
+      List<int> forwordPreFix = new List<int>(new int[N]);
+      List<int> reversePreFix = new List<int>(new int[N]);
+      forwordPreFix[0] = A[0];
+      reversePreFix[0] = A[N - 1];
+      for (int i = 1; i < N; i++)
+      {
+        forwordPreFix[i] = forwordPreFix[i - 1] + A[i];
+      }
+      int k = 0;
+      for (int i = N - 2; i >= 0; i--)
+      {
+        reversePreFix[k] = reversePreFix[k] + A[i];
+        k += 1;
+      }
+      int max = int.MinValue, sum = 0, n = B - 1, a = B, j = 0;
+      for (int i = -1; i < B; i++)
+      {
+        if (i == -1)
+        {
+          sum = reversePreFix[B - 1];
+        }
+        else if (j == -1)
+        {
+          sum = forwordPreFix[i];
+        }
+        else
+        {
+          sum = forwordPreFix[i] + reversePreFix[j];
+        }
+        if (max < sum)
+        {
+          max = sum;
+        }
+        a -= 1;
+        j = n - (B - a);
+      }
+      return (max);
     }
   }
 }

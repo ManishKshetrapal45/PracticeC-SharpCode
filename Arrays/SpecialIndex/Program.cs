@@ -42,6 +42,62 @@ namespace SpecialIndex
   {
     public static void Main(string[] args)
     {
+      List<int> list = new List<int>() { 2, 1, 6, 4 };
+      //List<int> list = new List<int>() { 1, 1, 1 };
+      Console.WriteLine(solve(list));
+    }
+
+    public static int solve(List<int> A)
+    {
+      int N = A.Count;
+      if (N == 0) return 0;
+
+      // initialize prefix arrays with size N
+      List<int> pfEven = new List<int>(new int[N]);
+      List<int> pfOdd = new List<int>(new int[N]);
+
+      // base case
+      pfEven[0] = A[0];
+      pfOdd[0] = 0;
+
+      // build prefix sums
+      for (int i = 1; i < N; i++)
+      {
+        if (i % 2 == 1)
+        {
+          pfEven[i] = pfEven[i - 1];
+          pfOdd[i] = pfOdd[i - 1] + A[i];
+        }
+        else
+        {
+          pfEven[i] = pfEven[i - 1] + A[i];
+          pfOdd[i] = pfOdd[i - 1];
+        }
+      }
+
+      int ans = 0;
+      for (int i = 0; i < N; i++)
+      {
+        int Todd, Teven;
+
+        if (i == 0)
+        {
+          Todd = pfEven[N - 1] - pfEven[i];
+          Teven = pfOdd[N - 1] - pfOdd[i];
+        }
+        else
+        {
+          Todd = pfOdd[i - 1] + (pfEven[N - 1] - pfEven[i]);
+          Teven = pfEven[i - 1] + (pfOdd[N - 1] - pfOdd[i]);
+        }
+
+        if (Todd == Teven)
+        {
+          ans++;
+        }
+      }
+
+      return ans;
     }
   }
 }
