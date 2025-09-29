@@ -37,6 +37,22 @@ namespace EvenSubarrays
   {
     static void Main(string[] args)
     {
+      List<int> list = new List<int>() { 2, 4, 8, 7, 6 };
+      //List<int> list = new List<int>() { 2, 4, 8, 6 };
+      Console.WriteLine(solve(list));
+    }
+
+    public static string solve(List<int> A)
+    {
+      int N = A.Count();
+      if (A[0] % 2 == 0 && A[N - 1] % 2 == 0 && N % 2 == 0)
+      {
+        return ("YES");
+      }
+      else
+      {
+        return ("NO");
+      }
     }
   }
 }
