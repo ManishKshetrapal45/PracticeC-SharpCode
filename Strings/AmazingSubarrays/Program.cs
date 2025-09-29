@@ -34,6 +34,22 @@ namespace AmazingSubarrays
   {
     public static void Main(string[] args)
     {
+      Console.WriteLine(solve("ABEC"));
+    }
+
+    public static int solve(string A)
+    {
+      long ans = 0;
+      int N = A.Length;
+      for (int i = 0; i < N; i++)
+      {
+        if (A[i] == 'A' || A[i] == 'a' || A[i] == 'E' || A[i] == 'e' || A[i] == 'I' || A[i] == 'i' || A[i] == 'O' || A[i] == 'o' || A[i] == 'U' || A[i] == 'u')
+        {
+          ans = ans + ((long)(N - i));
+        }
+      }
+      var t = ans % 10003;
+      return (int)t;
     }
   }
 }

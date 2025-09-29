@@ -42,6 +42,33 @@ namespace LeadersInAnArray
   {
     static void Main(string[] args)
     {
+      List<int> list = new List<int>() { 16, 17, 4, 3, 5, 2 };
+      var ans = solve(list);
+      foreach (int i in ans)
+      {
+        Console.Write($"{i} ");
+      }
+
+    }
+    public static List<int> solve(List<int> A)
+    {
+      if (A.Count() == 1)
+      {
+        return A;
+      }
+      int max = A[A.Count() - 1];
+      List<int> ans = new List<int>();
+      ans.Add(max);
+      for (int i = A.Count() - 2; i >= 0; i--)
+      {
+        if (A[i] > max)
+        {
+          max = A[i];
+          ans.Add(max);
+        }
+      }
+
+      return ans;
     }
   }
 }
