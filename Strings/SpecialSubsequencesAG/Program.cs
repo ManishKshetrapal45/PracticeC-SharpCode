@@ -37,7 +37,28 @@ namespace SpecialSubsequencesAG
   {
     public static void Main(string[] args)
     {
+      Console.WriteLine(solve("ABCGAG"));
     }
+
+    public static int solve(string A)
+    {
+      long ans = 0;
+      int C = 0;
+      for (int i = A.Length - 1; i >= 0; i--)
+      {
+        if (A[i] == 'G')
+        {
+          C++;
+        }
+        if (A[i] == 'A')
+        {
+          ans = ans + ((long)C);
+        }
+      }
+      long t = ans % 1000000007;
+      return ((int)t);
+    }
+
   }
 }
 
