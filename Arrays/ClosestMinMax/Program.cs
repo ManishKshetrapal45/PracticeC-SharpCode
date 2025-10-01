@@ -36,6 +36,47 @@ namespace ClosestMinMax
   {
     static void Main(string[] args)
     {
+      List<int> list = new List<int>() { 2, 6, 1, 6, 9 };
+      Console.WriteLine(Solve(list));
+    }
+
+    public static int Solve(List<int> A)
+    {
+      int max = int.MinValue, min = int.MaxValue;
+      foreach (int i in A)
+      {
+        if (max < i)
+        {
+          max = i;
+        }
+        if (min > i)
+        {
+          min = i;
+        }
+      }
+      int N = A.Count(), ans = A.Count(), maxI = -1, minI = -1, l;
+      for (int i = N - 1; i >= 0; i--)
+      {
+        if (A[i] == min)
+        {
+          minI = i;
+          if (maxI != -1)
+          {
+            l = Math.Abs(minI - maxI) + 1;
+            ans = Math.Min(ans, l);
+          }
+        }
+        if (A[i] == max)
+        {
+          maxI = i;
+          if (minI != -1)
+          {
+            l = Math.Abs(minI - maxI) + 1;
+            ans = Math.Min(ans, l);
+          }
+        }
+      }
+      return (ans);
     }
   }
 }

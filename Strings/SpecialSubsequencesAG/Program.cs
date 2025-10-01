@@ -37,10 +37,10 @@ namespace SpecialSubsequencesAG
   {
     public static void Main(string[] args)
     {
-      Console.WriteLine(solve("ABCGAG"));
+      Console.WriteLine(Solve("ABCGAG"));
     }
 
-    public static int solve(string A)
+    public static int Solve(string A)
     {
       long ans = 0;
       int C = 0;
