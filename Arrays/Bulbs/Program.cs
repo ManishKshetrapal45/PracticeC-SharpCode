@@ -43,6 +43,21 @@ namespace Bulbs
   {
     static void Main(string[] args)
     {
+      List<int> list = new List<int>() { 0, 1, 0, 1 };
+      Console.WriteLine(Bulbs(list));
+    }
+    public static int Bulbs(List<int> A)
+    {
+      int flag = 0, ans = 0;
+      for (int i = 0; i < A.Count(); i++)
+      {
+        if (flag % 2 == A[i])
+        {
+          flag += 1;
+          ans = ans + 1;
+        }
+      }
+      return (ans);
     }
   }
 }
