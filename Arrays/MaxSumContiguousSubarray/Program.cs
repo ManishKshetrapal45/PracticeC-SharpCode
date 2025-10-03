@@ -44,7 +44,7 @@ namespace MaxSumContiguousSubarray
 
     public static int MaxSubArray(List<int> A)
     {
-      int n = A.Count;
+      int n = A.Count();
       int max = int.MinValue;
       int curr = 0;
       for (int i = 0; i < n; i++)
