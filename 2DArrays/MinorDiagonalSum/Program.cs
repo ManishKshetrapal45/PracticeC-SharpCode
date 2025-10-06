@@ -34,7 +34,7 @@ Explanation 1:
 Explanation 2:
  A[1][2] + A[2][1] = 2 + 2 = 4
 */
-namespace ColumnSum
+namespace MinorDiagonalSum
 {
   public class Program
   {
@@ -42,9 +42,9 @@ namespace ColumnSum
     {
       List<List<int>> A = new List<List<int>>
       {
-          new List<int> { 1,2,3,4 },
-          new List<int> { 5,6,7,8 },
-          new List<int> { 9,2,3,4 },
+          new List<int> { 1,2,3 },
+          new List<int> { 5,6,7 },
+          new List<int> { 9,2,3 },
       };
 
       Console.WriteLine(solve(A));
