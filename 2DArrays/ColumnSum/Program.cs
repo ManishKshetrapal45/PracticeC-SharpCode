@@ -1,18 +1,17 @@
-﻿//Row Sum
+﻿//Column Sum
 /*Problem Description
-You are given a 2D matrix A of integers.
-Your task is to compute the sum of elements in each row and return a 1D array where each element represents the sum of a corresponding row in the matrix.
+You are given a 2D integer matrix A, return a 1D integer array containing column-wise sums of original matrix.
 
-Problem Constraints:
+Problem Constraints
 1 <= A.size() <= 103
 1 <= A[i].size() <= 103
 1 <= A[i][j] <= 103
 
 Input Format:
-First argument A is a 2D array of integers.(2D matrix).
+First argument is a 2D array of integers.(2D matrix).
 
 Output Format:
-Return an array containing row-wise sums of original matrix.
+Return an array containing column-wise sums of original matrix.
 
 Example Input:
 Input 1:
@@ -22,15 +21,16 @@ Input 1:
 
 Example Output:
 Output 1:
-[10,26,18]
+{15,10,13,16}
 
 Example Explanation:
 Explanation 1
-Row 1 = 1+2+3+4 = 10
-Row 2 = 5+6+7+8 = 26
-Row 3 = 9+2+3+4 = 18
+Column 1 = 1+5+9 = 15
+Column 2 = 2+6+2 = 10
+Column 3 = 3+7+3 = 13
+Column 4 = 4+8+4 = 16
 */
-namespace RowSum
+namespace ColumnSum
 {
   public class Program
   {
@@ -54,12 +54,12 @@ namespace RowSum
     {
       List<int> ans = new List<int>();
       int sum = 0;
-      for (int i = 0; i < A.Count(); i++)
+      for (int i = 0; i < A[0].Count(); i++)
       {
         sum = 0;
-        for (int j = 0; j < A[0].Count(); j++)
+        for (int j = 0; j < A.Count(); j++)
         {
-          sum += A[i][j];
+          sum += A[j][i];
         }
         ans.Add(sum);
       }
