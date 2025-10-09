@@ -68,6 +68,7 @@ namespace StarPatternI
             Console.Write(" ");
           }
         }
+
         for (int j = A; j >= 1; j--)
         {
           if (j <= i)
@@ -81,6 +82,7 @@ namespace StarPatternI
         }
         Console.WriteLine("");
       }
+
       for (int i = A; i > 0; i--)
       {
         for (int j = A; j >= 1; j--)
@@ -94,6 +96,7 @@ namespace StarPatternI
             Console.Write(" ");
           }
         }
+
         for (int j = 1; j <= A; j++)
         {
           if (j < i)
